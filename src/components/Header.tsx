@@ -6,14 +6,14 @@ import profileImg from "../assets/images/profile_1.png";
 
 export const Header = (): JSX.Element => {
   return (
-    <header className="bg-primary">
+    <header className="bg-primary p-[10px]">
       <div className="container flex mx-auto px-[20px] md:px-0">
         <div className="w-[140px] my-4 mr-[155px]">
           <a href="/">
             <img src={logo} alt="logo" />
           </a>
         </div>
-        <div className="flex justify-between items-center grow">
+        <div className="justify-between items-center grow hidden lg:flex">
           <input
             className="w-[500px] my-4 px-[9px] py-[5px] rounded placeholder-secondary-t bg-[url('/assets/search.svg')] bg-no-repeat bg-[center_right_1rem]"
             type="text"

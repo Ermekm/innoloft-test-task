@@ -7,10 +7,15 @@ export const Root = (): JSX.Element => {
   return (
     <div>
       <Header />
-      <div className="flex">
-        <Sidebar />
+      <div className="container mx-auto flex">
+        <div className="hidden xl:block">
+          <Sidebar />
+        </div>
         <div>
           <Breadcrumbs />
+          <div className="pb-[20px] p-[10px] xl:p-[0]">
+            <Product />
+          </div>
         </div>
       </div>
     </div>

@@ -40,7 +40,7 @@ export const Sidebar = (): JSX.Element => {
             <div className="flex h-[40px] items-center px-[9px]">
               <div className="mr-[12px]">
                 {" "}
-                <img src={organizations} alt=""/>
+                <img src={organizations} alt="" />
               </div>
 
               <span>Organizations</span>
