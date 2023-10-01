@@ -7,6 +7,9 @@ export const Root = (): JSX.Element => {
   return (
     <div>
       <Header />
+      <div className="flex">
+        <Sidebar />
+      </div>
     </div>
   );
 };
