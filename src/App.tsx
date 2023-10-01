@@ -1,11 +1,8 @@
-import './App.css'
+import "./App.css";
+import { Routes } from "./routes";
 
-function App (): JSX.Element {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
-  )
+function App(): JSX.Element {
+  return <Routes />;
 }
 
-export default App
+export default App;
