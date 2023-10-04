@@ -3,7 +3,7 @@ import chevronRight from "../assets/icons/chevron_right.svg";
 
 export const Breadcrumbs = (): JSX.Element => {
   return (
-    <ul className="flex gap-[10px] my-[20px] p-[10px] w-[100vw] md:w-[100%] ">
+    <ul className="flex gap-[10px] w-[100%] ">
       <li className="flex">
         <a href="#" className="flex items-center">
           <div className="w-[16px] h-[16px]">

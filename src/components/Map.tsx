@@ -1,18 +1,27 @@
+import { type FC } from "react";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 
-export const Map = (): JSX.Element => {
+interface MapProps {
+  latitude: string;
+  longitude: string;
+}
+
+export const Map: FC<MapProps> = ({ latitude, longitude }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
+
+  const location = { lat: Number(latitude), lng: Number(longitude) };
+
   if (!isLoaded) return <div>Loading ...</div>;
   return (
     <GoogleMap
       zoom={10}
-      center={{ lat: 50.779729, lng: 6.100367 }}
+      center={location}
       mapContainerClassName="w-[100%] h-[200px]"
       options={{ disableDefaultUI: true }}
     >
-      <MarkerF position={{ lat: 50.779729, lng: 6.100367 }} />
+      <MarkerF position={location} />
     </GoogleMap>
   );
 };

@@ -13,7 +13,7 @@ module.exports = {
     ".eslintrc.cjs",
     "tailwind.config.js",
     "postcss.config.js",
-    "vite.config.ts"
+    "vite.config.ts",
   ],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh"],
@@ -22,5 +22,6 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "@typescript-eslint/no-extraneous-class": "off",
   },
 };
