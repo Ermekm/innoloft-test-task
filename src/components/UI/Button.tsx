@@ -2,9 +2,11 @@ import { type ButtonHTMLAttributes, type FC } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export const Button: FC<ButtonProps> = ({ children }) => {
+export const Button: FC<ButtonProps> = ({ children, className, ...rest }) => {
+  let classes = "px-[10px] py-[5px] rounded-[6px] ";
+  if (className !== null) classes += className;
   return (
-    <button className="px-[10px] py-[5px] bg-primary text-white rounded-[6px]">
+    <button {...rest} className={classes}>
       {children}
     </button>
   );

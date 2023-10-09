@@ -17,19 +17,21 @@ export const Product: FC = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchProduct(6781)).catch(() => {});
+    dispatch(fetchProduct(6781)).catch((err) => {
+      console.error(err);
+    });
   }, []);
 
   if (error !== null) return <div>{error}</div>;
   else if (isLoading || product === null) return <div>Loading ...</div>;
 
   return (
-    <div className="pb-[20px] p-[10px] xl:p-[0]">
+    <div className="pb-[20px] p-[10px] xl:p-[0] w-[100%]">
       <div className="flex my-[20px] gap-[20px] flex-col justify-between md:flex-row">
         <Breadcrumbs />
         <div>
           <Link to={`/product/edit/${product.id}`}>
-            <Button>Edit</Button>
+            <Button className="bg-primary text-white">Edit</Button>
           </Link>
         </div>
       </div>
@@ -39,6 +41,7 @@ export const Product: FC = () => {
             name={product.name}
             description={product.description}
             picture={product.picture}
+            type={product.type}
           />
           <div className="w-[100%] md:w-[380px] flex-none flex gap-[10px] flex-col px-[10px] py-[20px] md:px-[20px]">
             <div className="font-semibold">Offered By</div>

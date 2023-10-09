@@ -2,17 +2,20 @@ import { type FC } from "react";
 import { EditorView } from "./Editor/EditorView";
 
 import patent from "../assets/icons/patent.svg";
+import { type IProductType } from "../types/Product";
 
 interface ProductDescriptionProps {
   name: string;
   description: string;
   picture: string;
+  type: IProductType;
 }
 
 export const ProductDescription: FC<ProductDescriptionProps> = ({
   name,
   description,
   picture,
+  type,
 }) => {
   return (
     <div>
@@ -26,7 +29,7 @@ export const ProductDescription: FC<ProductDescriptionProps> = ({
             <img src={patent} alt="" />
           </div>
           <div className="bg-white text-[16px] text-accent-t font-semibold px-[10px] py-[8px]">
-            Patent
+            {type.name}
           </div>
         </div>
       </div>

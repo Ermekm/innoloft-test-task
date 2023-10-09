@@ -1,20 +1,20 @@
 import { type ICompany } from "./Company";
 import { type IUser } from "./User";
 
-interface BaseEntity {
+export interface IBaseEntity {
   id: number;
   name: string;
 }
 
-interface IProductType extends BaseEntity {}
+export interface IProductType extends IBaseEntity {}
 
-export interface ICategory extends BaseEntity {}
+export interface ICategory extends IBaseEntity {}
 
-export interface ITrl extends BaseEntity {
+export interface ITrl extends IBaseEntity {
   description?: string | null;
 }
 
-export interface IBusinessModel extends BaseEntity {}
+export interface IBusinessModel extends IBaseEntity {}
 
 export interface IProduct {
   id: number;
@@ -25,7 +25,7 @@ export interface IProduct {
   categories: ICategory[];
   implementationEffortText: null;
   investmentEffort: string;
-  trl: ITrl;
+  trl: ITrl | null;
   video: string;
   user: IUser;
   company: ICompany;

@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        /* --color-primary: 255 115 179; */
+    }
+}
+
 html {
     font-size: 14px;
     color: #6B7280;

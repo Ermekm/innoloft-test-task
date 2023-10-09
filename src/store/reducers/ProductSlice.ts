@@ -17,7 +17,9 @@ const initialState: ProductState = {
 export const productSlice = createSlice({
   name: "product",
   initialState,
-  reducers: {},
+  reducers: {
+    
+  },
   extraReducers: {
     [fetchProduct.pending.type]: (state) => {
       state.isLoading = true;

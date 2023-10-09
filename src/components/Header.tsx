@@ -1,17 +1,30 @@
-import logo from "../assets/icons/logo.svg";
+import logoSvg from "../assets/icons/logo.svg";
 import messanger from "../assets/icons/messenger.svg";
 import arrowDown from "../assets/icons/arrow_down_light.svg";
 import notifications from "../assets/icons/notifications.svg";
 import profileImg from "../assets/images/profile_1.png";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../hooks/redux";
 
 export const Header = (): JSX.Element => {
+  const { config } = useAppSelector((state) => state.config);
+
   return (
     <header className="bg-primary p-[10px]">
-      <div className="container flex mx-auto px-[20px] md:px-0">
-        <div className="w-[140px] my-4 mr-[155px]">
-          <a href="/">
-            <img src={logo} alt="logo" />
-          </a>
+      <div className="container flex mx-auto px-[20px] md:px-0 items-center">
+        <div className="w-[140px] mr-[155px] bg-white px-[10px] py-[5px] h-[50px]">
+          <Link
+            to="/"
+            className="w-[100%] h-[100%] flex justify-center items-center"
+          >
+            <div>
+              <img
+                src={config?.logo ?? logoSvg}
+                alt="logo"
+                className="max-h-[100%]"
+              />
+            </div>
+          </Link>
         </div>
         <div className="justify-between items-center grow hidden lg:flex">
           <input

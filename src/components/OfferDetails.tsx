@@ -31,7 +31,7 @@ export const OfferDetails: FC<OfferDetailsProps> = ({
         </div>
         <div>
           <div>Technology</div>
-          <ul className="flex gap-[6px]">
+          <ul className="flex gap-[6px] flex-wrap">
             {categories.map((categories) => (
               <li className="px-[14px] py-[5px]" key={categories.id}>{categories.name}</li>
             ))}
@@ -44,7 +44,7 @@ export const OfferDetails: FC<OfferDetailsProps> = ({
         </div>
         <div>
           <div>Business Model</div>
-          <ul className="flex gap-[6px]">
+          <ul className="flex gap-[6px] flex-wrap">
             {businessModels.map((businessModel) => (
               <li className="px-[14px] py-[5px]" key={businessModel.id} >{businessModel.name}</li>
             ))}

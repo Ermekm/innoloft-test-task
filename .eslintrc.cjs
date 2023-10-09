@@ -23,5 +23,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/no-extraneous-class": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
   },
 };
