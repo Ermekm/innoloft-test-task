@@ -7,17 +7,17 @@ import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchProduct } from "../store/ActionCreators";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Button } from "../components/UI/Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const Product: FC = () => {
-  // const [product, setProduct] = useState<IProduct | null>(null);
+  const { productId } = useParams();
   const dispatch = useAppDispatch();
   const { product, isLoading, error } = useAppSelector(
     (state) => state.product,
   );
 
   useEffect(() => {
-    dispatch(fetchProduct(6781)).catch((err) => {
+    dispatch(fetchProduct(Number(productId))).catch((err) => {
       console.error(err);
     });
   }, []);

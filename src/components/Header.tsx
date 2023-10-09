@@ -12,19 +12,19 @@ export const Header = (): JSX.Element => {
   return (
     <header className="bg-primary p-[10px]">
       <div className="container flex mx-auto px-[20px] md:px-0 items-center">
-        <div className="w-[140px] mr-[155px] bg-white px-[10px] py-[5px] h-[50px]">
-          <Link
-            to="/"
-            className="w-[100%] h-[100%] flex justify-center items-center"
-          >
-            <div>
+        <div className="w-[310px]">
+          <div className="w-fit bg-white px-[10px] py-[5px] h-[50px]">
+            <Link
+              to="/"
+              className="w-[100%] h-[100%] flex justify-center items-center"
+            >
               <img
                 src={config?.logo ?? logoSvg}
                 alt="logo"
-                className="max-h-[100%]"
+                className="w-[100%] h-[100%]"
               />
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
         <div className="justify-between items-center grow hidden lg:flex">
           <input

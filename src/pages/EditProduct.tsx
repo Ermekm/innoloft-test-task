@@ -1,7 +1,7 @@
 import { type FC, useEffect, useState, type ChangeEvent } from "react";
 import { CompanyDescription } from "../components/CompanyDescription";
 import { Button } from "../components/UI/Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import patent from "../assets/icons/patent.svg";
 import { Editor } from "../components/Editor/Editor";
 import { Input } from "../components/UI/Input";
@@ -15,6 +15,7 @@ import {
 import ProductService from "../api/services/ProductService";
 
 export const EditProduct: FC = () => {
+  const { productId } = useParams();
   const [product, setProduct] = useState<IProduct | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -25,14 +26,14 @@ export const EditProduct: FC = () => {
 
   function fetchProduct(): void {
     setIsLoading(true);
-    ProductService.getOne(6781)
+    ProductService.getOne(Number(productId))
       .then((res) => {
         setProduct(res.data);
         setError(null);
       })
       .catch((err) => {
         setError(err.message);
-        console.log(err);
+        console.error(err);
       })
       .finally(() => {
         setIsLoading(false);
@@ -78,7 +79,7 @@ export const EditProduct: FC = () => {
       return productCopy;
     });
   }
-  function handleActiveTrlChange(trl: ITrl | null): void {
+  function handleActiveTrlChange(trl: ITrl): void {
     setProduct((prev) => {
       const productCopy = Object.assign({}, prev);
       productCopy.trl = trl;
@@ -94,13 +95,14 @@ export const EditProduct: FC = () => {
   }
 
   function updateProduct(): void {
-    console.log(product)
     if (product !== null) {
       ProductService.update(product)
-        .then((res) => {
-          console.log(res);
+        .then(() => {
+          alert("Changes have been saved");
         })
-        .catch(() => {});
+        .catch((err) => {
+          console.error(err);
+        });
     }
   }
 
@@ -193,7 +195,7 @@ export const EditProduct: FC = () => {
         <Button onClick={updateProduct} className="bg-primary text-white">
           Save
         </Button>
-        <Link to={`/product/6781/`}>
+        <Link to={`/product/${productId}/`}>
           <Button className="w-[100%]">Cancel</Button>
         </Link>
       </div>

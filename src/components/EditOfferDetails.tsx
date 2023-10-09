@@ -23,7 +23,7 @@ interface EditOfferDetailsProps {
   costs: string;
   onCategoriesChange: (categories: ICategory[]) => void;
   onBusinessModelsChange: (businessModel: IBusinessModel[]) => void;
-  onActiveTrlChange: (trl: ITrl | null) => void;
+  onActiveTrlChange: (trl: ITrl) => void;
   onCostsChange: (cost: string) => void;
 }
 
@@ -38,9 +38,11 @@ export const EditOfferDetails: FC<EditOfferDetailsProps> = ({
   onCostsChange,
 }) => {
   const dispatch = useAppDispatch();
-  const { trl } = useAppSelector((state) => state.trl);
+  const { trlArr } = useAppSelector((state) => state.trl);
   useEffect(() => {
-    dispatch(fetchAllTrl()).catch(() => {});
+    dispatch(fetchAllTrl()).catch((err) => {
+      console.error(err);
+    });
   }, []);
 
   function addCategory(): void {
@@ -107,8 +109,10 @@ export const EditOfferDetails: FC<EditOfferDetailsProps> = ({
 
   function handleTrlChange(e: ChangeEvent<HTMLSelectElement>): void {
     const activeTrlId = e.target.value;
-    const activeTrl = trl.find((trl) => trl.id === activeTrlId);
-    onActiveTrlChange(activeTrl ?? null);
+    const activeTrl = trlArr.find((trl) => String(trl.id) === activeTrlId);
+    if (activeTrl) {
+      onActiveTrlChange(activeTrl);
+    }
   }
 
   function handleCostChange(e: ChangeEvent<HTMLInputElement>): void {
@@ -180,7 +184,10 @@ export const EditOfferDetails: FC<EditOfferDetailsProps> = ({
               </li>
             ))}
           </ul>
-          <Button className="w-full bg-primary text-white" onClick={addBusinessModel}>
+          <Button
+            className="w-full bg-primary text-white"
+            onClick={addBusinessModel}
+          >
             +
           </Button>
         </div>
@@ -192,7 +199,7 @@ export const EditOfferDetails: FC<EditOfferDetailsProps> = ({
         <div className="flex-grow">
           <div>TRL</div>
           <Select
-            options={trl}
+            options={trlArr}
             defaultValue={activeTrlId ?? undefined}
             onChange={handleTrlChange}
           />

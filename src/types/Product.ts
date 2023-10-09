@@ -25,7 +25,7 @@ export interface IProduct {
   categories: ICategory[];
   implementationEffortText: null;
   investmentEffort: string;
-  trl: ITrl | null;
+  trl: ITrl;
   video: string;
   user: IUser;
   company: ICompany;

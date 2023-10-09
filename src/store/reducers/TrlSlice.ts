@@ -3,13 +3,13 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type ITrl} from "../../types/Product";
 
 interface TrlState {
-  trl: ITrl[];
+  trlArr: ITrl[];
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: TrlState = {
-  trl: [],
+  trlArr: [],
   isLoading: false,
   error: null,
 };
@@ -25,7 +25,7 @@ export const trlSlice = createSlice({
     [fetchAllTrl.fulfilled.type]: (state, action: PayloadAction<ITrl[]>) => {
       state.isLoading = false;
       state.error = null;
-      state.trl = action.payload;
+      state.trlArr = action.payload;
     },
     [fetchAllTrl.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false;

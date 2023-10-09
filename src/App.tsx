@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import "./App.css";
 import { Routes } from "./routes";
 import { useAppDispatch } from "./hooks/redux";
 import { fetchConfig } from "./store/ActionCreators";
-import { type IConfig } from "./types/Config";
 import { setPrimaryColor } from "./helpers/setPrimaryColor";
+import { type IConfig } from "./types/Config";
+import "./App.css";
 
 function App(): JSX.Element {
   const APP_ID = import.meta.env.VITE_APP_ID ?? 1;

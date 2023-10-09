@@ -1,9 +1,9 @@
-import { type FC } from "react";
 import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
+import { type FC } from "react";
 import { froalaEditorConfig } from "./config";
-
 import "froala-editor/js/plugins.pkgd.min.js";
 import "froala-editor/css/froala_editor.pkgd.min.css";
+
 interface EditorViewProps {
   content: string;
 }

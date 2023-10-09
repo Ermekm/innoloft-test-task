@@ -1,10 +1,9 @@
+import { Map } from "./Map";
+import { useAppSelector } from "../hooks/redux";
 import { type FC } from "react";
 import { type IUser } from "../types/User";
 import { type ICompany } from "../types/Company";
-import { Map } from "./Map";
-
 import location from "../assets/icons/location.svg";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
 
 interface CompanyDescriptionProps {
   user: IUser;
