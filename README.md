@@ -1,27 +1,17 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite with HMR
 
-Currently, two official plugins are available:
+### `npm install`
+This command installs a package and any packages that it depends on.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### `npm start`
 
-## Expanding the ESLint configuration
+Runs the app in the development mode.\
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## PS
+In order for Google maps to work you need to add an API key to the .env file as VITE_GOOGLE_MAPS_API_KEY
